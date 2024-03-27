@@ -7,7 +7,7 @@ const DataDisplay = () => {
   const [isDataLoaded, setIsDataLoaded] = useState(false);
   const [editItemId, setEditItemId] = useState(null);
   const [editItemData, setEditItemData] = useState({});
-  const [isFetchClicked, setIsFetchClicked] = useState(false); // Track if the fetch button is clicked
+  const [isFetchClicked, setIsFetchClicked] = useState(true); // Set to true initially
 
   useEffect(() => {
     if (isFetchClicked) {
@@ -48,17 +48,10 @@ const DataDisplay = () => {
     setEditItemData({ ...editItemData, [name]: value });
   };
 
-  const handleFetchClick = () => {
-    setIsFetchClicked(true); // Set isFetchClicked to true to trigger data fetching
-  };
-
   return (
     <div className="container" style={{ fontFamily: 'Roboto, sans-serif' }}>
       <h2 className="mt-4">Data Display</h2>
-      {!isDataLoaded && !isFetchClicked && (
-        <button className="btn btn-primary mt-3" onClick={handleFetchClick}>Fetch Data</button>
-      )}
-      {isDataLoaded && (
+      {(!isDataLoaded || isFetchClicked) && (
         <div className="row mt-3">
           <div className="col">
             <div className="border border-dark rounded p-3">

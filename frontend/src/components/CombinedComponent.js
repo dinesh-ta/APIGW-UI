@@ -4,8 +4,8 @@ import DisplayData from './DisplayData';
 import logo from './logo.png'; // Import your logo file
 
 const CombinedComponent = () => {
-  const [isCreateClicked, setIsCreateClicked] = useState(true); // Set initial state to true
-  const [isFetchClicked, setIsFetchClicked] = useState(false);
+  const [isCreateClicked, setIsCreateClicked] = useState(false); // Set initial state to true
+  const [isFetchClicked, setIsFetchClicked] = useState(true);
 
   const handleCreateClick = () => {
     setIsCreateClicked(true);
